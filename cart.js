@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartTotal = document.getElementById('cartTotal');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Функция для отрисовки звезд рейтинга
     function renderRatingStars(rating) {
         let starsHtml = '';
         for (let i = 1; i <= 5; i++) {
@@ -54,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         cartTotal.textContent = total.toFixed(2);
     }
 
-    // Обработчики событий
     document.addEventListener('click', function(e) {
         const target = e.target;
         const itemId = target.dataset?.id;
@@ -76,10 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         localStorage.setItem('cart', JSON.stringify(cart));
         renderCart();
-        updateCartCounter(); // Обновляем счетчик в шапке
+        updateCartCounter(); 
     });
 
-    // Функция для обновления счетчика в шапке
     function updateCartCounter() {
         const counter = document.querySelector('.cart-counter');
         if (counter) {

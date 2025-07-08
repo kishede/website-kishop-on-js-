@@ -469,34 +469,141 @@ body {
 
 /* Для мобилок */
 
+/* Мобильная адаптация - дополнительные стили */
 @media (max-width: 768px) {
+    /* Общие стили */
+    body {
+        padding-top: 100px; /* Увеличиваем отступ для шапки */
+        font-size: 14px;
+    }
+
+    /* Шапка */
+    .header {
+        padding: 10px;
+    }
+
     .header-content {
         flex-direction: column;
         height: auto;
-        padding: 15px;
+        gap: 10px;
     }
-    
-    .main-nav {
-        margin: 15px 0;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
+
     .logo {
-        margin-bottom: 10px;
+        font-size: 1.5rem;
     }
-    
-    .products-container {
+
+    .main-nav {
+        margin: 10px 0;
+        gap: 15px;
+    }
+
+    .cart-icon {
+        margin-top: 10px;
+    }
+
+    /* Страница товаров */
+    .products-cont {
         grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .product {
+        margin-bottom: 15px;
+    }
+
+    .product-title {
+        font-size: 1.2rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+
+    /* Корзина */
+    .cart-cont {
+        padding: 10px;
     }
 
     .cart-item {
         flex-direction: column;
-        align-items: flex-start;
+        padding: 10px;
     }
-    
+
+    .cart-product {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .cart-product-image {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
+
+    .cart-product-info {
+        width: 100%;
+    }
+
     .remove-item {
-        margin: 15px 0 0 0;
+        margin: 10px 0 0 0;
         align-self: flex-end;
+    }
+
+    .cart-total {
+        font-size: 1.1rem;
+        padding-right: 0;
+    }
+
+    .checkout-button {
+        max-width: 100%;
+    }
+
+    /* Страница "О проекте" */
+    .abt-text {
+        padding: 10px;
+    }
+
+    .abt {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 110px;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
+
+    .product-inf {
+        padding: 10px;
+    }
+
+    .buy-button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    .buy-button, .quantity-btn, .remove-item, .checkout-button {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    .star {
+        pointer-events: auto; 
+    }
+
+    input, select, textarea {
+        font-size: 16px; 
     }
 }

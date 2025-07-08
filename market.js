@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Инициализация рейтинга (ваш существующий код)
+
     const stars = document.querySelectorAll('.star');
 
-    // Инициализация корзины
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartIcon = document.getElementById('cartIcon');
     const cartCounter = document.getElementById('cartCounter');
@@ -12,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // Обработчики для кнопок "Купить"
     document.querySelectorAll('.buy-button').forEach(button => {
         button.addEventListener('click', function() {
             const product = this.closest('.product');
@@ -23,28 +21,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const productImage = product.querySelector('.product-img img').src;
             const productRating = parseInt(localStorage.getItem(`productRating_${productId}`)) || 0;
 
-            // Проверяем, есть ли товар уже в корзине
             const existingItemIndex = cart.findIndex(item => item.id === productId);
 
             if (existingItemIndex !== -1) {
-                // Если товар уже есть - увеличиваем quantity
                 cart[existingItemIndex].quantity += 1;
             } else {
-                // Если нет - добавляем новый товар
                 cart.push({
                     id: productId,
                     name: productName,
                     price: productPrice,
                     image: productImage,
                     quantity: 1,
-                    rating: productRating // Сохраняем рейтинг товара
+                    rating: productRating 
                 });
             }
 
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCounter();
             
-            // Анимация иконки корзины
             cartIcon.classList.add('added');
             setTimeout(() => cartIcon.classList.remove('added'), 500);
             
@@ -52,12 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Переход в корзину
     cartIcon.addEventListener('click', function() {
         window.location.href = 'cart.html';
     });
 
-    // Ваш существующий код для рейтинга
     function highlightStars(rating, isHover = false) {
         stars.forEach(star => {
             const starValue = parseInt(star.getAttribute('data-rating'));
@@ -75,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const productId = product.dataset.id || 
                         product.querySelector('.product-title').textContent.replace(/\s+/g, '-').toLowerCase();
         
-        // Загружаем рейтинг для конкретного товара
         let currentRating = localStorage.getItem(`productRating_${productId}`) || 0;
         ratingValue.textContent = currentRating;
         
@@ -90,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Инициализация звезд
         highlightStars(currentRating);
         
         stars.forEach(star => {
@@ -106,10 +96,20 @@ document.addEventListener('DOMContentLoaded', function() {
             star.addEventListener('click', () => {
                 currentRating = parseInt(star.getAttribute('data-rating'));
                 ratingValue.textContent = currentRating;
-                // Сохраняем рейтинг для конкретного товара
                 localStorage.setItem(`productRating_${productId}`, currentRating);
                 highlightStars(currentRating);
             });
+        });
+    });
+
+    stars.forEach(star => {
+        star.addEventListener('touchstart', () => {
+            const hoverRating = parseInt(star.getAttribute('data-rating'));
+            highlightStars(hoverRating, true);
+        });
+        
+        star.addEventListener('touchend', () => {
+            highlightStars(currentRating);
         });
     });
 });
