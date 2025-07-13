@@ -88,14 +88,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 
 	function updateCartCounter() {
-		const counter = document.querySelector('.cart-counter')
 		const counters = document.querySelectorAll('.cart-counter')
 		const total = cart.reduce((sum, item) => sum + item.quantity, 0)
 
-		counter.forEach(counter => {
-			if (counter) {
-				counter.textContent = total
-			}
+		counters.forEach(counter => {
+			counter.textContent = total
 		})
 	}
 

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         sidebar.classList.remove('open')
         overlay.classList.remove('active')
         document.body.classList.remove('no-scroll')
-    }
+    })
 
 	function updateSidebarCartCounter() {
         sidebarCartCounter.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
