@@ -508,29 +508,29 @@ body {
 
 @media (max-width: 768px) {
 	body {
-		padding-top: 100px;
+		padding-top: 60px;
 		font-size: 14px;
 	}
 
-	.main-nav,
-	.header,
-	.cart-icon {
+	.header-content {
+		justify-content: space-between;
+		position: relative;
+		padding: 0 15px;
+	}
+
+	.main-nav {
 		display: none;
 	}
 
-	.header-content {
-		justify-content: center;
-		position: relative;
-	}
-
 	.logo {
+		font-size: 1.5rem;
 		margin-left: 0;
 		position: static;
-		transform: none;
 	}
 
 	.cart-icon {
-		margin-top: 10px;
+		display: flex;
+		margin-top: 0;
 	}
 
 	.products-cont {
@@ -604,18 +604,15 @@ body {
 		position: absolute;
 		left: 15px;
 		top: 15px;
+		background: none;
+		border: none;
+		z-index: 1002;
 	}
 
 	.mob-menu-img {
 		width: 28px;
 		height: 28px;
-	}
-
-	.close-menu {
-		position: absolute;
-		right: 15px;
-		top: 15px;
-		left: auto;
+		filter: invert(1);
 	}
 
 	.sidebar {
@@ -627,7 +624,14 @@ body {
 		background: #2a9d8f;
 		z-index: 1001;
 		transition: left 0.3s ease;
-		padding-top: 60px; /* Добавляем отступ сверху */
+		padding-top: 60px;
+	}
+
+	.sidebar .mob-menu {
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		left: auto;
 	}
 
 	.sidebar-nav {
@@ -637,17 +641,15 @@ body {
 		padding: 20px;
 	}
 
-	.sidebar-nav,
-	.nav-link {
+	.sidebar-nav .nav-link {
 		font-size: 1.2rem;
 		padding: 10px;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
-	.sidebar,
-	.cart-icon {
+	.sidebar .cart-icon {
 		margin-top: 20px;
-		padding: 10px;
+		padding: 10px 20px;
 		border-top: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
@@ -658,59 +660,15 @@ body {
 	.overlay {
 		position: fixed;
 		top: 0;
+		left: 0;
 		right: 0;
 		bottom: 0;
 		background: rgba(0, 0, 0, 0.5);
-		z-index: 1001;
+		z-index: 1000;
 		display: none;
 	}
 
 	.overlay.active {
 		display: block;
-	}
-
-	.main-nav,
-	.cart-icon {
-		display: none;
-	}
-
-	.header-content {
-		justify-content: center;
-	}
-
-	.logo {
-		margin-left: 40px;
-	}
-
-	.sidebar,
-	.cart-icon {
-		display: flex;
-		margin-top: 20px;
-		justify-content: center;
-		color: white;
-	}
-
-	.sidebar,
-	.cart-icon::before {
-		color: white;
-	}
-
-	.sidebar,
-	.cart-label {
-		color: white;
-	}
-
-	.mob-menu,
-	.sidebar,
-	.overlay {
-		display: block;
-	}
-
-	.sidebar,
-	.mob-menu {
-		position: absolute;
-		right: 15px;
-		top: 15px;
-		left: auto;
 	}
 }
