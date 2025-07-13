@@ -489,23 +489,6 @@ body {
 	display: none;
 }
 
-/* Для мобилок */
-
-.mob-menu {
-	background: none;
-	border: none;
-	cursor: pointer;
-	padding: 5px;
-	display: none;
-	z-index: 1001;
-}
-
-.mob-menu-img {
-	width: 24px;
-	height: 24px;
-	filter: invert(1);
-}
-
 @media (max-width: 768px) {
 	body {
 		padding-top: 60px;
@@ -533,7 +516,6 @@ body {
 	.logo {
 		position: absolute;
 		left: 50%;
-		transform: translateX(-50%);
 		font-size: 1.5rem;
 	}
 
@@ -561,6 +543,7 @@ body {
 	}
 
 	.sidebar {
+		display: block;
 		position: fixed;
 		top: 0;
 		left: -100%;
@@ -571,7 +554,6 @@ body {
 		z-index: 1001;
 		transition: left 0.3s ease;
 		padding-top: 70px;
-		box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
 	}
 
 	.sidebar.open {
@@ -614,7 +596,8 @@ body {
 		width: 100%;
 	}
 
-	.overlay {
+	.overlay.active {
+		display: block;
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -622,11 +605,6 @@ body {
 		bottom: 0;
 		background: rgba(0, 0, 0, 0.5);
 		z-index: 1000;
-		display: none;
-	}
-
-	.overlay.active {
-		display: block;
 	}
 
 	.products-cont {
