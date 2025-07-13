@@ -5,16 +5,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	const cartIcon = document.getElementById('cartIcon')
 	const cartCounter = document.getElementById('cartCounter')
 
-	const menuToggle = document.querySelector('.mob-menu')
+	const menuToggle = document.querySelectorAll('.mob-menu')
 	const sidebar = document.getElementById('sidebar')
 	const overlay = document.getElementById('overlay')
 	const sidebarCartIcon = document.getElementById('sidebarCartIcon')
 	const sidebarCartCounter = document.getElementById('sidebarCartCounter')
 
-	menuToggle.addEventListener('click', function () {
-		sidebar.classList.toggle('open')
-		overlay.classList.toggle('active')
-		document.body.classList.toggle('no-scroll')
+	menuToggle.forEach(button => {
+		button.addEventListener('click', function (e) {
+			e.stopPropagation()
+			sidebar.classList.toggle('open')
+			overlay.classList.toggle('active')
+			document.body.classList.toggle('no-scroll')
+		})
 	})
 
 	overlay.addEventListener('click', function () {

@@ -523,6 +523,7 @@ body {
 		align-items: center;
 		height: 100%;
 		position: relative;
+		width: 100%;
 	}
 
 	.main-nav {
@@ -530,12 +531,10 @@ body {
 	}
 
 	.logo {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
+		position: static;
+		transform: none;
+		margin: 0 auto;
 		font-size: 1.5rem;
-		margin-left: 0;
-		z-index: 1;
 	}
 
 	.cart-icon {
@@ -551,11 +550,9 @@ body {
 
 	.mob-menu {
 		display: block;
-		background: none;
-		border: none;
-		padding: 10px;
+		position: static;
+		order: -1;
 		margin-right: auto;
-		z-index: 1002;
 	}
 
 	.mob-menu-img {
@@ -582,7 +579,8 @@ body {
 		left: 0;
 	}
 
-	.sidebar .mob-menu {
+	.sidebar,
+	.mob-menu {
 		position: absolute;
 		right: 15px;
 		top: 15px;
@@ -596,18 +594,21 @@ body {
 		padding: 20px;
 	}
 
-	.sidebar-nav .nav-link {
+	.sidebar-nav,
+	.nav-link {
 		font-size: 1.1rem;
 		padding: 12px 15px;
 		border-radius: 5px;
 		transition: background 0.2s;
 	}
 
-	.sidebar-nav .nav-link:active {
+	.sidebar-nav,
+	.nav-link:active {
 		background: rgba(255, 255, 255, 0.1);
 	}
 
-	.sidebar .cart-icon {
+	.sidebar,
+	.cart-icon {
 		margin-top: 20px;
 		padding: 15px;
 		border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -723,7 +724,8 @@ body {
 		padding-top: 60px;
 	}
 
-	.sidebar .mob-menu {
+	.sidebar,
+	.mob-menu {
 		position: absolute;
 		right: 15px;
 		top: 15px;
@@ -737,13 +739,20 @@ body {
 		padding: 20px;
 	}
 
-	.sidebar-nav .nav-link {
+	.sidebar-nav,
+	.nav-link {
 		font-size: 1.2rem;
 		padding: 10px;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
-	.sidebar .cart-icon {
+	.cart-icon {
+		order: 1;
+		margin-left: auto;
+	}
+
+	.sidebar,
+	.cart-icon {
 		margin-top: 20px;
 		padding: 10px 20px;
 		border-top: 1px solid rgba(255, 255, 255, 0.2);
