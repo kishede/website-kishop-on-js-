@@ -480,68 +480,6 @@ body {
 	align-items: center;
 }
 
-/* Моб. меню */
-
-.menu-toggle {
-	display: none;
-	background: none;
-	border: none;
-	color: white;
-	font-size: 1.5rem;
-	cursor: pointer;
-	padding: 5px;
-}
-
-.mob-sidebar {
-	position: fixed;
-	top: 0;
-	left: -250px;
-	width: 250px;
-	height: 100vh;
-	background: #2a9d8f;
-	z-index: 999;
-	transition: left 0.3s ease;
-	padding-top: 20px;
-}
-
-.mob-sidebar.open {
-	left: 0;
-}
-
-.mob-slidebar-nav {
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
-	padding: 20px;
-}
-
-.mob-slidebar-nav .nav-link {
-	color: white;
-	text-decoration: none;
-	font-size: 1.1rem;
-}
-
-.mob-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 999;
-	display: none;
-}
-
-.mob-overlay.active {
-	display: block;
-}
-
-.mob-menu,
-.mob-sidebar,
-.mob-overlay {
-	display: none;
-}
-
 /* Для мобилок */
 
 @media (max-width: 768px) {
