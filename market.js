@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.body.classList.remove('no-scroll')
 	})
 
+	document.getElementById('overlay').addEventListener('click', function () {
+		document.getElementById('sidebar').classList.remove('open')
+		this.classList.remove('active')
+		document.body.classList.remove('no-scroll')
+	})
+
 	function updateSidebarCartCounter() {
 		sidebarCartCounter.textContent = cart.reduce(
 			(sum, item) => sum + item.quantity,
@@ -30,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		)
 	}
 
-	document.querySelectorAll('.mob-menu').forEach(menu => {
-		menu.addEventListener('click', function () {
-			sidebar.classList.toggle('open')
-			overlay.classList.toggle('active')
+	document.querySelectorAll('.mob-menu').forEach(button => {
+		button.addEventListener('click', function () {
+			document.getElementById('sidebar').classList.toggle('open')
+			document.getElementById('overlay').classList.toggle('active')
 			document.body.classList.toggle('no-scroll')
 		})
 	})
