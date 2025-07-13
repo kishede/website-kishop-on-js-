@@ -1,40 +1,39 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
 	const stars = document.querySelectorAll('.star')
 
 	let cart = JSON.parse(localStorage.getItem('cart')) || []
 	const cartIcon = document.getElementById('cartIcon')
 	const cartCounter = document.getElementById('cartCounter')
 
-	const menuToggle = document.getElementById('.mob-menu')
-	const sidebar = document.getElementById('mob-sidebar')
-	const overlay = document.getElementById('mob-overlay')
+	const menuToggle = document.querySelector('.mob-menu')
+	const sidebar = document.getElementById('sidebar')
+	const overlay = document.getElementById('overlay')
 	const sidebarCartIcon = document.getElementById('sidebarCartIcon')
 	const sidebarCartCounter = document.getElementById('sidebarCartCounter')
 
-	if (menuToggle && sidebar && overlay) {
-		menuToggle.addEventListener('click', function () {
-			sidebar.classList.toggle('open')
-			overlay.classList.toggle('active')
-			document.body.classList.toggle('no-scroll')
-		})
+    menuToggle.addEventListener('click', function () {
+        sidebar.classList.toggle('open')
+        overlay.classList.toggle('active')
+        document.body.classList.toggle('no-scroll')
+    })
 
-		overlay.addEventListener('click', function () {
-			sidebar.classList.remove('open')
-			overlay.classList.remove('active')
-			document.body.classList.remove('no-scroll')
-		})
-	}
+    overlay.addEventListener('click', function () {
+        sidebar.classList.remove('open')
+        overlay.classList.remove('active')
+        document.body.classList.remove('no-scroll')
+    }
 
 	function updateSidebarCartCounter() {
-		sidebarCartCounter.textContent = cart.reduce(
-			(sum, item) => sum + item.quantity,
-			0
-		)
-	}
+        sidebarCartCounter.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
 
 	sidebarCartIcon.addEventListener('click', function () {
 		window.location.href = 'cart.html'
 	})
+
+    sidebarCartIcon.addEventListener('click', function() {
+        window.location.href = 'cart.html'
+    })
 
 	function updateCartCounter() {
 		const total = cart.reduce((sum, item) => sum + item.quantity, 0)

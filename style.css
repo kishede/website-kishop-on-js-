@@ -481,8 +481,8 @@ body {
 }
 
 .mob-menu,
-.mob-sidebar,
-.mob-overlay {
+.sidebar,
+.overlay {
 	display: none;
 }
 
@@ -603,7 +603,7 @@ body {
 		margin-left: 40px;
 	}
 
-	.mob-sidebar,
+	.sidebar,
 	.cart-icon {
 		display: flex;
 		margin-top: 20px;
@@ -611,19 +611,19 @@ body {
 		color: white;
 	}
 
-	.mob-sidebar,
+	.sidebar,
 	.cart-icon::before {
 		color: white;
 	}
 
-	.mob-sidebar,
+	.sidebar,
 	.cart-label {
 		color: white;
 	}
 
 	.mob-menu,
-	.mob-sidebar,
-	.mob-overlay {
+	.sidebar,
+	.overlay {
 		display: block;
 	}
 }
