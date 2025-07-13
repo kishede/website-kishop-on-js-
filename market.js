@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	const stars = document.querySelectorAll('.star')
 
 	let cart = JSON.parse(localStorage.getItem('cart')) || []
@@ -11,29 +11,40 @@ document.addEventListener('DOMContentLoaded', function() {
 	const sidebarCartIcon = document.getElementById('sidebarCartIcon')
 	const sidebarCartCounter = document.getElementById('sidebarCartCounter')
 
-    menuToggle.addEventListener('click', function () {
-        sidebar.classList.toggle('open')
-        overlay.classList.toggle('active')
-        document.body.classList.toggle('no-scroll')
-    })
+	menuToggle.addEventListener('click', function () {
+		sidebar.classList.toggle('open')
+		overlay.classList.toggle('active')
+		document.body.classList.toggle('no-scroll')
+	})
 
-    overlay.addEventListener('click', function () {
-        sidebar.classList.remove('open')
-        overlay.classList.remove('active')
-        document.body.classList.remove('no-scroll')
-    })
+	overlay.addEventListener('click', function () {
+		sidebar.classList.remove('open')
+		overlay.classList.remove('active')
+		document.body.classList.remove('no-scroll')
+	})
 
 	function updateSidebarCartCounter() {
-        sidebarCartCounter.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-    }
+		sidebarCartCounter.textContent = cart.reduce(
+			(sum, item) => sum + item.quantity,
+			0
+		)
+	}
+
+	document.querySelectorAll('.mob-menu').forEach(menu => {
+		menu.addEventListener('click', function () {
+			sidebar.classList.toggle('open')
+			overlay.classList.toggle('active')
+			document.body.classList.toggle('no-scroll')
+		})
+	})
 
 	sidebarCartIcon.addEventListener('click', function () {
 		window.location.href = 'cart.html'
 	})
 
-    sidebarCartIcon.addEventListener('click', function() {
-        window.location.href = 'cart.html'
-    })
+	sidebarCartIcon.addEventListener('click', function () {
+		window.location.href = 'cart.html'
+	})
 
 	function updateCartCounter() {
 		const total = cart.reduce((sum, item) => sum + item.quantity, 0)
@@ -131,7 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
 				.textContent.replace(/\s+/g, '-')
 				.toLowerCase()
 
-		let currentRating = localStorage.getItem(`productRating_${productId}`) || 0
+		let currentRating =
+			parseInt(localStorage.getItem(`productRating_${productId}`)) || 0
 		ratingValue.textContent = currentRating
 
 		function highlightStars(rating, isHover = false) {
