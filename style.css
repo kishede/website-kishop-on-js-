@@ -497,18 +497,22 @@ body {
 		font-size: 14px;
 	}
 	.main-nav,
-	.header .cart-icon {
+	.header,
+	.cart-icon {
 		display: none;
 	}
 
 	.header-content {
-		flex-direction: center;
-		padding-top: 10px;
+		flex-direction: row;
+		justify-content: center;
+		padding-top: 0;
+		height: 60px;
 	}
 
 	.logo {
-		margin-left: 40px;
-		font-size: 1.5rem;
+		margin-left: 0;
+		position: relative;
+		left: -15px;
 	}
 
 	.cart-icon {
@@ -582,10 +586,21 @@ body {
 	}
 
 	.mob-menu {
-		display: block;
 		position: absolute;
 		left: 15px;
 		top: 15px;
+		background: none;
+		border: none;
+		color: white;
+		font-size: 1.5rem;
+		z-index: 1001;
+	}
+
+	.close-menu {
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		left: auto;
 	}
 
 	.sidebar {
@@ -599,6 +614,29 @@ body {
 		transition: left 0.3s ease;
 		padding: 20px;
 		box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+	}
+
+	.sidebar-nav {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		padding: 60px 20px 20px;
+		width: 100%;
+	}
+
+	.sidebar-nav,
+	.nav-link {
+		font-size: 1.2rem;
+		padding: 10px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.sidebar,
+	.cart-icon {
+		margin-top: 30px;
+		font-size: 1.2rem;
+		justify-content: flex-start;
+		padding-left: 10px;
 	}
 
 	.sidebar.open {
